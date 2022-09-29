@@ -12,8 +12,8 @@ load_dotenv()
 names = set()
 
 app_search = AppSearch(
-    <AppSearchURL>,
-    http_auth= <AppSearchPrivateKey>
+    APP_SEARCH_URL,
+    http_auth=APP_SEARCH_PRIVATE_KEY
 )
 
 print("Create engine cities...")
@@ -26,7 +26,7 @@ app_search.create_engine(
 print("Engine created")
 print ("Load data...")
 # Load data
-with open("./cities.json") as f:
+with open("./data/cities.json") as f:
     jsonFile = json.load(f)
     products = []
     i = 0
@@ -66,7 +66,7 @@ app_search.create_engine(
 print("Engine created")
 print ("Load data...")
 # Load data
-with open("./stores.json") as f:
+with open("./data/stores.json") as f:
     jsonFile = json.load(f)
     products = []
     i = 0
