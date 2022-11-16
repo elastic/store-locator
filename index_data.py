@@ -1,19 +1,17 @@
 from elastic_enterprise_search import AppSearch
 import json
-from dotenv import load_dotenv
-import random
-import os
-import csv
+import argparse
 from elasticsearch import Elasticsearch, helpers
 
 
-load_dotenv()
-
-names = set()
+parser = argparse.ArgumentParser()
+parser.add_argument('--app_search_url', dest='app_search_url', required=True)
+parser.add_argument('--app_search_private_key', dest='app_search_private_key', required=True)
+args = parser.parse_args()
 
 app_search = AppSearch(
-    APP_SEARCH_URL,
-    http_auth=APP_SEARCH_PRIVATE_KEY
+    args.app_search_url,
+    http_auth=args.app_search_private_key
 )
 
 print("Create engine cities...")
